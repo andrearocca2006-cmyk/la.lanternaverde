@@ -1,0 +1,33 @@
+{
+  "title": "La Lanterna Verde illustrative preparation sequence",
+  "method": "Built-in image_gen generated 12-shot storyboard; FFmpeg grid extraction, resizing, per-shot portrait crops, subtle optical push-ins and dissolves.",
+  "source": "preparation-storyboard.jpg",
+  "prompt": "generation-prompt.txt",
+  "disclosure": "AI-generated visual reconstruction. Not footage of the restaurant, its premises, or its staff.",
+  "limitations": [
+    "Motion is assembled from still images, not continuous recorded food preparation.",
+    "The original storyboard is 1448x1086, with individual frames about 482x271 pixels. Encodes are upscaled.",
+    "Dough and cooking imagery illustrates the process; it does not document an actual 72-hour timeline."
+  ],
+  "video": {
+    "desktop": "1280x720 H.264 silent MP4",
+    "mobile": "540x960 H.264 silent MP4; individually framed portrait crops",
+    "duration_seconds": 15.6,
+    "frame_rate": 24,
+    "loop": "Final dissolve returns to first preparation shot."
+  },
+  "stills": [
+    "dough",
+    "stretch",
+    "tomato",
+    "mozzarella",
+    "basil",
+    "peel",
+    "insertion",
+    "cooking",
+    "bake",
+    "removal",
+    "margherita",
+    "restart"
+  ]
+}

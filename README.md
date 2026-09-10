@@ -2,7 +2,7 @@
 
 Sorgente principale: https://github.com/andrearocca2006-cmyk/la.lanternaverde.git
 
-Ricostruzione del progetto di Ristorante Pizzeria La Lanterna Verde, Via Napoli 99, Bari, dalla conversazione condivisa. Prima di intervenire leggere [stato del recupero](docs/RECOVERY.md), [requisiti integrali](docs/REQUIREMENTS.md), [verifica tecnica](docs/QA.md), [checklist](docs/CHECKLIST.md) e [regole di continuità](AGENTS.md).
+Ricostruzione del progetto di Ristorante Pizzeria La Lanterna Verde, Via Napoli 99, Bari, dalla conversazione condivisa. Prima di intervenire leggere [stato del recupero](docs/RECOVERY.md), [specifica funzionale recuperata](docs/REQUIREMENTS.md), [verifica tecnica](docs/QA.md), [checklist](docs/CHECKLIST.md) e [regole di continuità](AGENTS.md).
 
 ## Stato
 

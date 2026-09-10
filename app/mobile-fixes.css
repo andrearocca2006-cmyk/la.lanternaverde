@@ -1,0 +1,6 @@
+@media (max-width: 600px) {
+  .motion-label,
+  .motion-pause {
+    bottom: 88px;
+  }
+}

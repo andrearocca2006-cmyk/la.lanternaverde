@@ -1,0 +1,11 @@
+import {sqliteTable,text,integer,index,uniqueIndex} from 'drizzle-orm/sqlite-core';
+export const settings=sqliteTable('settings',{tenant:text('tenant').primaryKey(),value:text('value').notNull(),version:integer('version').notNull().default(1)});
+export const reservations=sqliteTable('reservations',{
+ id:text('id').primaryKey(),tenant:text('tenant').notNull(),code:text('code').notNull(),tokenHash:text('token_hash').notNull(),idempotency:text('idempotency').notNull(),
+ date:text('date').notNull(),time:text('time').notNull(),start:integer('start').notNull(),end:integer('end').notNull(),adults:integer('adults').notNull(),children:integer('children').notNull(),
+ name:text('name').notNull(),phone:text('phone').notNull(),email:text('email').notNull(),allergies:text('allergies').notNull().default(''),highchair:integer('highchair').notNull().default(0),occasion:text('occasion').notNull().default(''),notes:text('notes').notNull().default(''),internalNotes:text('internal_notes').notNull().default(''),changeRequest:text('change_request').notNull().default(''),
+ status:text('status').notNull(),source:text('source').notNull(),privacy:integer('privacy').notNull(),marketing:integer('marketing').notNull().default(0),createdAt:integer('created_at').notNull(),updatedAt:integer('updated_at').notNull(),version:integer('version').notNull().default(1)
+},t=>[uniqueIndex('idx_reservations_code').on(t.code),uniqueIndex('idx_reservations_token').on(t.tokenHash),uniqueIndex('idx_reservations_idempotency').on(t.tenant,t.idempotency),index('idx_reservations_occupancy').on(t.tenant,t.start,t.end),index('idx_reservations_date').on(t.tenant,t.date)]);
+export const outbox=sqliteTable('outbox',{id:text('id').primaryKey(),reservationId:text('reservation_id').notNull(),tenant:text('tenant').notNull(),kind:text('kind').notNull(),status:text('status').notNull().default('not_configured'),createdAt:integer('created_at').notNull()});
+export const rateLimits=sqliteTable('rate_limits',{key:text('key').primaryKey(),count:integer('count').notNull(),expires:integer('expires').notNull()});
+export const audit=sqliteTable('audit',{id:text('id').primaryKey(),reservationId:text('reservation_id').notNull(),actor:text('actor').notNull(),action:text('action').notNull(),createdAt:integer('created_at').notNull()});

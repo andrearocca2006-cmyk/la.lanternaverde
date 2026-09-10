@@ -1,0 +1,112 @@
+{
+  "date": "2026-09-10T18:42:02.493Z",
+  "engine": "Node SQLite executing unmodified application SQL; mocked D1 interface, not hosted D1",
+  "passed": 26,
+  "total": 26,
+  "results": [
+    {
+      "name": "Initial manual DEMO settings",
+      "passed": true
+    },
+    {
+      "name": "Persistent insert and manual pending status",
+      "passed": true
+    },
+    {
+      "name": "Token hash only and public response privacy",
+      "passed": true
+    },
+    {
+      "name": "Idempotent retry returns one record",
+      "passed": true
+    },
+    {
+      "name": "Unpredictable token lookup / invalid token rejected",
+      "passed": true
+    },
+    {
+      "name": "Request change preserves date and pending status",
+      "passed": true
+    },
+    {
+      "name": "Optimistic locking rejects stale customer update without side effects",
+      "passed": true
+    },
+    {
+      "name": "Cancellation releases capacity and updates ICS",
+      "passed": true
+    },
+    {
+      "name": "Invalid booking rejected server side",
+      "passed": true
+    },
+    {
+      "name": "Honeypot and rate limiting",
+      "passed": true
+    },
+    {
+      "name": "Automatic mode with real capacity gate",
+      "passed": true
+    },
+    {
+      "name": "Simultaneous requests cannot overbook or emit ghost events",
+      "passed": true
+    },
+    {
+      "name": "Overlapping slots blocked but end boundary allowed",
+      "passed": true
+    },
+    {
+      "name": "Italian phone normalization prevents overlapping duplicate",
+      "passed": true
+    },
+    {
+      "name": "Children included or excluded by configuration",
+      "passed": true
+    },
+    {
+      "name": "Groups stay manual and do not hold seats until confirmed",
+      "passed": true
+    },
+    {
+      "name": "Admin edit cannot exceed capacity",
+      "passed": true
+    },
+    {
+      "name": "Closures and exceptional availability override weekly schedule",
+      "passed": true
+    },
+    {
+      "name": "Unauthorized admin and spoofed identity denied",
+      "passed": true
+    },
+    {
+      "name": "Authorized local API and Sites explicit allowlist",
+      "passed": true
+    },
+    {
+      "name": "Cross-origin writes and malformed JSON rejected",
+      "passed": true
+    },
+    {
+      "name": "Settings stale versions rejected",
+      "passed": true
+    },
+    {
+      "name": "Timezone conversion summer/winter and exact last day",
+      "passed": true
+    },
+    {
+      "name": "No simulated email: all outbox events not configured",
+      "passed": true
+    },
+    {
+      "name": "DEMO seed is safe and idempotent",
+      "passed": true
+    },
+    {
+      "name": "Retention purge removes expired demo and notification records",
+      "passed": true
+    }
+  ]
+}
