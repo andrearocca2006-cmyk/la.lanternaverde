@@ -26,6 +26,8 @@ Applicare la migrazione una volta per database nuovo. Le modifiche allo schema r
 
 Per sviluppo: `pnpm dev`. Per la regressione: `pnpm test`. Per la verifica dei tipi: `pnpm exec tsc --noEmit`. `pnpm build` genera bundle client, Worker ESM e configurazione locale. La cartella `.wrangler/state` contiene il database locale persistente e non va committata.
 
+Per pubblicare il progetto completo da GitHub su un URL Cloudflare `workers.dev`, seguire la guida [Pubblicazione Cloudflare collegata a GitHub](docs/CLOUDFLARE-DEPLOY.md). La procedura mantiene backend, D1 e gestionale; GitHub Pages non è adatto a queste funzioni server.
+
 ## Area gestionale
 
 Percorso: `/gestione-prenotazioni`.
