@@ -6,7 +6,7 @@ Ricostruzione del progetto di Ristorante Pizzeria La Lanterna Verde, Via Napoli 
 
 ## Stato
 
-Bozza DEMO, noindex/nofollow/noarchive. Tutte le prenotazioni sono isolate nel tenant `demo`; non riservano tavoli reali. Il sorgente comprende frontend, API Worker, schema D1, migrazione, media e istruzioni riproducibili. La pubblicazione pubblica, i dati reali e l'email non sono attivati.
+Bozza DEMO pubblicata per la condivisione tramite link e protetta dall'indicizzazione con `noindex`/`nofollow`/`noarchive`. Tutte le prenotazioni sono isolate nel tenant `demo`; non riservano tavoli reali. Il sorgente comprende frontend, API Worker, schema D1, migrazione, media e istruzioni riproducibili. I dati reali e l'email non sono attivati.
 
 ## Avvio da GitHub
 
