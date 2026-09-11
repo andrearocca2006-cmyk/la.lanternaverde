@@ -36,8 +36,8 @@ Per sviluppo locale creare `.env` da `.env.example`, abilitare `ALLOW_LOCAL_ADMI
 
 ## Funzionalità
 
-- Homepage responsive con menù a categorie, timeline 72 ore, preparazione pizza, mappa a caricamento volontario, collegamenti ufficiali.
-- Hero illustrativa 15,6 secondi desktop/mobile, poster immediato, pausa, fallback statico.
+- Homepage responsive con menù a categorie, timeline 72 ore, mappa a caricamento volontario e collegamenti ufficiali.
+- Hero illustrativa statica ad alta risoluzione, con composizione dedicata per desktop e smartphone.
 - Calendario, orari disponibili, adulti e bambini separati, gruppi, dati contatto, riepilogo e conferma manuale/automatica.
 - Salvataggio D1, token casuale a 256 bit (solo hash nel database), link riservato nel frammento URL, codice DEMO, ICS, modifica e annullamento.
 - Controllo atomico capienza sui picchi degli intervalli sovrapposti, idempotenza, normalizzazione telefono, snapshot impostazioni e versionamento modifiche.

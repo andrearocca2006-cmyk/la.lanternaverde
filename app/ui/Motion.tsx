@@ -1,7 +1,7 @@
 'use client';
 
-import {useEffect, useRef, useState} from 'react';
-import {ArrowDown, ArrowUpRight} from 'lucide-react';
+import {useEffect, useState} from 'react';
+import {ArrowUpRight} from 'lucide-react';
 
 export function MotionHero() {
   return (
@@ -17,7 +17,6 @@ export function MotionHero() {
           fetchPriority="high"
         />
       </picture>
-      <div className="hero-fire-glow" aria-hidden="true" />
       <div className="hero-shade" />
       <div className="hero-copy">
         <p className="eyebrow">VIA NAPOLI 99 · BARI</p>
@@ -85,119 +84,6 @@ export function LanternEffects() {
   }, []);
 
   return <div className="pointer-glow" aria-hidden="true" />;
-}
-
-const pizzaSteps = [
-  ['Impasto', 'La base soffice e ben maturata.'],
-  ['Pomodoro', 'Il rosso intenso della Margherita.'],
-  ['Mozzarella', 'Morbida, distribuita un gesto alla volta.'],
-  ['Basilico', 'Il profumo fresco che completa tutto.'],
-] as const;
-
-export function PizzaJourney() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const activeRef = useRef(0);
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-    let frame = 0;
-
-    const update = () => {
-      frame = 0;
-      const rect = section.getBoundingClientRect();
-      const distance = Math.max(1, section.offsetHeight - window.innerHeight);
-      const progress = Math.min(1, Math.max(0, -rect.top / distance));
-      const split = reducedMotion.matches ? 0 : Math.min(1, Math.max(0, (progress - 0.08) / 0.78));
-      const reveal = Math.min(1, split * 3.2);
-
-      section.style.setProperty('--pizza-progress', progress.toFixed(4));
-      section.style.setProperty('--pizza-split', split.toFixed(4));
-      section.style.setProperty('--pizza-reveal', reveal.toFixed(4));
-
-      const nextActive = reducedMotion.matches ? 0 : Math.min(3, Math.floor(progress * 4.15));
-      if (nextActive !== activeRef.current) {
-        activeRef.current = nextActive;
-        setActive(nextActive);
-      }
-    };
-
-    const queueUpdate = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener('scroll', queueUpdate, {passive: true});
-    window.addEventListener('resize', queueUpdate, {passive: true});
-    reducedMotion.addEventListener('change', queueUpdate);
-
-    return () => {
-      window.removeEventListener('scroll', queueUpdate);
-      window.removeEventListener('resize', queueUpdate);
-      reducedMotion.removeEventListener('change', queueUpdate);
-      cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  return (
-    <section ref={sectionRef} className="pizza-scroll" aria-labelledby="pizza-scroll-title">
-      <div className="pizza-scroll-sticky">
-        <div className="pizza-scroll-copy">
-          <p className="eyebrow">DENTRO UNA MARGHERITA</p>
-          <h2 id="pizza-scroll-title">
-            Pochi ingredienti.
-            <br />
-            <em>Ognuno al suo posto.</em>
-          </h2>
-          <p className="pizza-scroll-intro">
-            Scorri e guarda la pizza scomporsi: dalla base fino all’ultima foglia di basilico.
-          </p>
-          <ol className="pizza-scroll-steps">
-            {pizzaSteps.map(([title, text], index) => (
-              <li
-                key={title}
-                className={active === index ? 'active' : ''}
-                aria-current={active === index ? 'step' : undefined}
-              >
-                <span>0{index + 1}</span>
-                <div>
-                  <strong>{title}</strong>
-                  <p>{text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        <figure className="pizza-stack">
-          <div className="pizza-aura" aria-hidden="true" />
-          <img
-            className="pizza-layer pizza-finished"
-            src="/motion/pizza-layers/finished.webp"
-            alt="Pizza Margherita completa vista dall’alto"
-            width="1600"
-            height="1600"
-            loading="lazy"
-          />
-          <div className="pizza-components" aria-hidden="true">
-            <img className="pizza-layer pizza-base" src="/motion/pizza-layers/base.webp" alt="" width="1600" height="1600" />
-            <img className="pizza-layer pizza-tomato" src="/motion/pizza-layers/tomato.webp" alt="" width="1600" height="1600" />
-            <img className="pizza-layer pizza-mozzarella" src="/motion/pizza-layers/mozzarella.webp" alt="" width="1600" height="1600" />
-            <img className="pizza-layer pizza-basil" src="/motion/pizza-layers/basil.png" alt="" width="1600" height="1600" />
-          </div>
-          <figcaption>Ricostruzione illustrativa ad alta definizione degli ingredienti.</figcaption>
-        </figure>
-
-        <div className="pizza-scroll-cue" aria-hidden="true">
-          <span>Scorri per scomporla</span>
-          <ArrowDown size={18} />
-        </div>
-      </div>
-    </section>
-  );
 }
 
 export function Timeline() {
