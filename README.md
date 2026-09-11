@@ -30,15 +30,13 @@ Per sviluppo: `pnpm dev`. Per la regressione: `pnpm test`. Per la verifica dei t
 
 Percorso: `/gestione-prenotazioni`.
 
-Su Sites: configurare sul server `AUTH_MODE=sites` e `ADMIN_USER_IDS` con l'elenco esplicito degli ID utenti autorizzati. Il dispatcher deve autenticare e sostituire gli header `oai-authenticated-user-*`: non esporre direttamente un Worker che si fida di header arbitrari. Il login ChatGPT da solo non attribuisce il ruolo di amministratore. Senza allowlist l'accesso è negato.
-
-Per sviluppo locale creare `.env` da `.env.example`, abilitare `ALLOW_LOCAL_ADMIN=true` e impostare `LOCAL_ADMIN_TOKEN` a un valore casuale lungo. Riavviare il server, aprire il gestionale su localhost ed usare «Accesso di sviluppo locale». La chiave resta solo in memoria nel browser. Questa modalità è rifiutata su host non locali e deve rimanere disabilitata nell'ambiente ospitato. Nessuna password nel frontend o nel repository.
+L’accesso usa un’unica password verificata sul server. Configurare `AUTH_MODE=password` e salvare `ADMIN_PASSWORD` esclusivamente come segreto dell’ambiente ospitato; la password non deve comparire nel frontend o nel repository. Il browser la conserva soltanto in memoria fino alla chiusura o al ricaricamento della pagina.
 
 ## Funzionalità
 
 - Homepage responsive con menù a categorie, timeline 72 ore, mappa a caricamento volontario e collegamenti ufficiali.
 - Hero illustrativa statica ad alta risoluzione, con composizione dedicata per desktop e smartphone.
-- Calendario, orari disponibili, adulti e bambini separati, gruppi, dati contatto, riepilogo e conferma manuale/automatica.
+- Calendario, orari disponibili, adulti e bambini separati, gruppi, dati contatto, riepilogo e conferma automatica con controllo finale della capienza.
 - Salvataggio D1, token casuale a 256 bit (solo hash nel database), link riservato nel frammento URL, codice DEMO, ICS, modifica e annullamento.
 - Controllo atomico capienza sui picchi degli intervalli sovrapposti, idempotenza, normalizzazione telefono, snapshot impostazioni e versionamento modifiche.
 - Gestionale giorno/settimana, ricerca/filtri, tutti gli stati, prenotazioni telefoniche, note interne, CSV protetto dalle formule.
